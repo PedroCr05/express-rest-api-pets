@@ -21,9 +21,9 @@ router.post(`/`, async (req, res) => {
 router.get(`/`, async (req, res) => {
   try {
     const findPets = await Pet.find({});
-    res.json(findPets);
+    res.status(200).json(findPets);
   } catch (error) {
-    res.status(500).send(error.message);
+    res.status(500).json({ error: error.message });
   }
 });
 
